@@ -6,7 +6,7 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 16:55:07 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/05/05 18:51:32 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/05/17 12:44:53 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int     ft_iterative_factorial(int nb)
     {
         return (0);
     }
-    
+
     fact = 1;
     while (nb > 0)
     {
@@ -38,7 +38,7 @@ int     ft_iterative_factorial(int nb)
 int main(void)
 {
     int nbr = 0;
-    
+
     printf("factorial of %d! : %d\n", nbr, ft_iterative_factorial(nbr));
 
     return 0;
