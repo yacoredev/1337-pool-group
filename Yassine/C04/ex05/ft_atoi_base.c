@@ -6,13 +6,13 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/03 16:23:03 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/05/13 13:17:36 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/05/17 12:45:36 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
     Conversion Logic, Base to Decimal:
-    
+
        - RULE: MULTIPLY each digit by (Base ^ Position).
        - ORDER: Positions start from 0 on the right.
        - Example (1010 to Decimal):
@@ -23,7 +23,7 @@
 int     ft_strlen(char *str)
 {
     int     index;
-    
+
     index = 0;
     while (str[index] != '\0')
     {
@@ -40,12 +40,12 @@ int     is_base_valid(char *base)
     i = 0;
     while (base[i])
     {
-        if (base[i] == '-' || base[i] == '+' || base[i] == ' ' 
+        if (base[i] == '-' || base[i] == '+' || base[i] == ' '
         || (base[i] >= '\t' && base[i] <= '\r'))
         {
             return (0);
         }
-        
+
         j = i + 1;
         while (base[j])
         {
@@ -81,7 +81,7 @@ unsigned int    ft_convert_base_ten(char *str, int i, int base_nbr, char *base)
 {
     unsigned int    result;
     int             idx_base;
-    
+
     result = 0;
     while (str[i])
     {
@@ -121,7 +121,7 @@ int     ft_atoi(char *str, char *base, int base_nbr)
         }
         i++;
     }
-    
+
     result = ft_convert_base_ten(str, i, base_nbr, base);
     return (int)(result * sign);
 }
@@ -145,13 +145,13 @@ int     ft_atoi_base(char *str, char *base)
 /*
 #include <stdio.h>
 int     main(void) {
-    
+
 	char	*dec = "0123456789";
 	char	*hex = "0123456789abcdef";
 	char	*oct = "012345678";
 	char	*bin = "01";
     char    *new = "poneyvif";
-    
+
     // convert a string number from a given base to int
     // works like ft_atoi (spaces, signs, stop on invalid char)
     printf("===== Convert any Base to Decimal =====\n");
