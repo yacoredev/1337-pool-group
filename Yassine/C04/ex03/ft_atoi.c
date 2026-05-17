@@ -6,7 +6,7 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 18:11:13 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/05/05 12:19:59 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/05/13 13:18:25 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int     ft_atoi(char *str)
     sign = 1;
     result = 0;
     // skip whitespaces gher li flbdya
-    while (str[i] && (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r')))
+    while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
     {
         i++;
     }
@@ -41,7 +41,7 @@ int     ft_atoi(char *str)
         mora whitespaces darori khas l9a sign + or -  (or a number)
         ila mal9ithomch return 0
     */
-    while (str[i] && (str[i] == '+' || str[i] == '-'))
+    while (str[i] == '+' || str[i] == '-')
     {
         if (str[i] == '-')
         {
