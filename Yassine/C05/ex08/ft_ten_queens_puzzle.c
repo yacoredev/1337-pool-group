@@ -6,7 +6,7 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 18:18:21 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/05/11 13:01:06 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/05/13 13:32:44 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void ft_puzzle(int clm, int *box, int size, int *count)
 }
 
 /*
-  fach katprinti lina awal solution tl9ah ghadi trja3 l column ma9abl akhir w 
+  fach katprinti lina awal solution tl9ah ghadi trja3 l column (level) ma9abl akhir w 
   thbtha (queen) lrow li tab3 hta tl9a liha blasa (ila mal9atch lih blasa kat3awd 
   trja3 l column li 9bal w tbdal liha blasa hta tl9a blasa safe) wa haka hta 
   tl9a solution tanya tprintiha w t3awd trj3 bnafs tari9a hta nsaliw ga3 rows 
@@ -133,6 +133,7 @@ int     ft_ten_queens_puzzle(void)
   return (count);
 }
 
+/*
 #include <stdio.h>
 int main(void)
 {
@@ -140,3 +141,4 @@ int main(void)
     
     return (0);
 }
+*/
