@@ -6,7 +6,7 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 11:19:34 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/04/13 16:01:46 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/05/17 12:48:37 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int     is_not_num(char *c)
 
 int     is_not_alpha(char *c)
 {
-    if ((*c < 'A' || *c > 'Z') && 
+    if ((*c < 'A' || *c > 'Z') &&
         (*c < 'a' || *c > 'z'))
     {
         return (1);
@@ -57,7 +57,7 @@ void    ft_strlowcase(char *str)
 char    *ft_strcapitalize(char *str)
 {
     int     i;
-    
+
     // methode 1:
     // step 1: transforms all letters to lowercase
     ft_strlowcase(str);
@@ -67,15 +67,15 @@ char    *ft_strcapitalize(char *str)
         - if the last character is not letter or a number,
            capital the current letter
 
-        ⚠️​ If I'm relying on capitalizing the following 
-        character, I can change a character outside 
+        ⚠️​ If I'm relying on capitalizing the following
+        character, I can change a character outside
         the string boundaries.
         (also if i check the previous (first) char)
     */
     i = 0;
     while (str[i])
     {
-        /* Imp note: hna kon daz l condition li tab3 i == 0 knt ghadi n9ra 
+        /* Imp note: hna kon daz l condition li tab3 i == 0 knt ghadi n9ra
            kharj string but first loop maghayw9a3ch hadchi 7it m3a ghaychof
            i == 0 ghaydkhl direct ycapitalizi char (ila kan 7arf)
         */
@@ -90,7 +90,7 @@ char    *ft_strcapitalize(char *str)
     // i = 0;
     // while (str[i])
     // {
-    //     /* Imp note: hna kon daz l condition li tab3 i == 0 knt ghadi n9ra 
+    //     /* Imp note: hna kon daz l condition li tab3 i == 0 knt ghadi n9ra
     //        kharj string but first loop maghayw9a3ch hadchi 7it m3a ghaychof
     //        i == 0 ghaydkhl direct ycapitalizi char (ila kan 7arf)
     //     */
@@ -111,7 +111,7 @@ char    *ft_strcapitalize(char *str)
 /*int     main(void)
 {
     char s[] = "hrRT TRE+trR TOOL*mon/tre-eet45eg r7r 7r7 ";
-    
+
     char *ptr_to_s = ft_strcapitalize(s);
     printf("%s\n", ptr_to_s);
 

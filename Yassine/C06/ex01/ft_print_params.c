@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/02 13:12:55 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/05/11 00:00:06 by ybaadi           ###   ########.fr       */
+/*   Created: 2026/05/10 18:10:52 by ybaadi            #+#    #+#             */
+/*   Updated: 2026/05/10 18:10:53 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,29 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void    ft_putstr(char *str)
+void	ft_print_params(int count, char **param)
 {
-    int     i;
+	char	*ptr_param;
+	int	i;
+	int	j;	
 
-    i = 0;
-    while (str[i])
-    {
-        ft_putchar(str[i]);
-        i++;
-    }
+	j = 1;
+	while (j < count)
+	{
+		ptr_param = param[j];
+		i = 0;
+		while (ptr_param[i])
+		{
+			ft_putchar(ptr_param[i]);
+			i++;
+		}
+		ft_putchar('\n');
+		j++;
+	}
 }
 
-/*
-int     main(void) {
-    
-    ft_putstr("Hello\n");
-    
-    return (0);
+int	main(int argc, char *argv[])
+{
+	ft_print_params(argc, argv);
+	return (0);
 }
-*/

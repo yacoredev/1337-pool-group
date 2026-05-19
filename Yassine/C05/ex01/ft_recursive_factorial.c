@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/02 13:12:55 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/05/11 00:00:06 by ybaadi           ###   ########.fr       */
+/*   Created: 2026/05/05 17:56:16 by ybaadi            #+#    #+#             */
+/*   Updated: 2026/05/05 18:51:28 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void    ft_putstr(char *str)
-{
-    int     i;
-
-    i = 0;
-    while (str[i])
+int     ft_recursive_factorial(int nb)
+{   
+    if (nb < 0)
     {
-        ft_putchar(str[i]);
-        i++;
+        return (0);
     }
+    if (nb == 0)
+    {
+        return (1);
+    }
+    return (nb * ft_recursive_factorial(nb - 1));
 }
 
 /*
-int     main(void) {
+#include <stdio.h>
+int main(void)
+{
+    int nbr = -4;
     
-    ft_putstr("Hello\n");
+    printf("factorial of %d! : %d\n", nbr, ft_recursive_factorial(nbr));
     
-    return (0);
+    return 0;
 }
 */
