@@ -6,7 +6,7 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 18:21:21 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/05/17 12:47:27 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/06/08 13:00:19 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,13 @@ void    ft_sort_int_tab(int *tab, int size)
         {
             // kan7tafd b index dyal minimum value
             if (tab[j] < tab[indexMin])
-            {
                 indexMin = j;
-            }
             j++;
         }
 
         // kahat minimum value blasto flbidaya
-        ft_swap((tab + i), (tab + indexMin));
+        if (indexMin != i)
+            ft_swap((tab + i), (tab + indexMin));
 
         i++;
     }
@@ -52,7 +51,7 @@ void    ft_sort_int_tab(int *tab, int size)
 
 /*int     main(void)
 {
-    int arr[] = {5,2,4,1,3};
+    int arr[] = {5, 2, 4, 1, 3};
     int size = sizeof(arr) / sizeof(arr[0]);
 
     ft_sort_int_tab(arr, size);
