@@ -6,23 +6,23 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 17:20:13 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/04/23 00:05:05 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/06/11 17:55:53 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
     NAME:
         strcat - copy or catenate a string
-    
+
     DESCRIPTION:
-        This function catenates the string pointed to by src, after the string pointed 
+        This function catenates the string pointed to by src, after the string pointed
         to by dst (overwriting its terminating null byte) "kanktbo fo9 null ter".
         The programmer is responsible for allocating a destination buffer large enough,
         that is, strlen(dst) + strlen(src) + 1.
 
     RETURN VALUE:
         These functions return dst.
-    
+
     Errors:
         if dest buffer less than strlen(dst) + strlen(src) + 1
         It causes a Buffer Overflow.
@@ -31,26 +31,22 @@
 
 int     ft_strlen(char *str)
 {
-    unsigned int     index;
-
-    if (!str)
-    {
-        return (-1);
-    }
+    int     index;
 
     index = 0;
     while (str[index])
-    {
         index++;
-    }
     return (index);
 }
 
 char    *ft_strcat(char *dest, char *src)
 {
-    unsigned int     d_len;
-    unsigned int     i;
-    
+    int     d_len;
+    int     i;
+
+    /*
+        man strcat makaydirch guard l dest wla src
+    */
     d_len = ft_strlen(dest);
     i = 0;
     while (src[i])
