@@ -6,7 +6,7 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 21:25:28 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/04/13 13:48:56 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/06/08 13:33:21 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ int     ft_str_is_alpha(char *str)
 {
     while (*str)
     {
-        // had l'interval li kayhamni:  [***A and Z***] or [***a and z***]
-        // 3ksto bach ila l9it character kharj 
-        // l'interval li bghit yrj3 0
-        
-        if ((*str < 'A' || *str > 'Z') && 
+        /*
+            had l'interval li kayhamni:  [A... and ...Z] or [a... and ...z]
+            3ksto bach ila l9it character kharj
+            l'interval li bghit yrj3 0
+        */
+        if ((*str < 'A' || *str > 'Z') &&
             (*str < 'a' || *str > 'z'))
         {
             return (0);
@@ -38,6 +39,6 @@ int     ft_str_is_alpha(char *str)
     // char buffer[100] = "";   // Allocates 100 bytes, first character is '\0'
 
     printf("%d\n", ft_str_is_alpha("hello4"));
-    
+
     return (0);
 }*/
