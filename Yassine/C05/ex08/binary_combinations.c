@@ -22,7 +22,7 @@ void generate_comb(int *comb, int idx, int size, int *ctr)
   generate_comb(comb, idx + 1, size, ctr);
   comb[idx] = 1;
   generate_comb(comb, idx + 1, size, ctr);
-  
+
   return;
 }
 
@@ -31,9 +31,9 @@ int binary_comb()
   int comb[3];
   int size = 3;
   int count = 0;
-  
+
   generate_comb(comb, 0, size, &count);
-  
+
   return(count);
 }
 
@@ -42,3 +42,13 @@ int main()
   printf("%d combinations found\n", binary_comb());
   return(0);
 }
+/*
+                         generate_comb()
+                       /                \
+level0 -->            0       -->        1
+                   /     \            /      \
+level1 -->       0   -->   1         0   -->   1
+               /   \     /   \     /   \     /   \
+level2 -->    0 --> 1   0 --> 1   0 --> 1   0 --> 1
+
+*/
