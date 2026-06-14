@@ -1,9 +1,11 @@
 #include <unistd.h>
 
-// take string as a param
-// dispaly the first 'a' + \n
-// If there are no 'a' just print \n
-// If nbr of param isn't 1 print 'a' + \n
+	/*
+	take string as a param
+	dispaly the first 'a' + \n
+	If there are no 'a' just print \n
+	If nbr of param isn't 1 print 'a' + \n
+	*/
 int		main(int c, char **v)
 {
 	int	i;
