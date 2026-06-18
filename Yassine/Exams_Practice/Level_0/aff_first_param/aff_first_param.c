@@ -12,9 +12,9 @@ int	main(int argc, char **argv)
 	if (argc >= 2)
 	{
 		i = 0;
-		while(argv[argc - 1][i])
+		while(argv[1][i])
 		{
-			ft_putchar(argv[argc - 1][i]);
+			ft_putchar(argv[1][i]);
 			i++;
 		}
 	}
