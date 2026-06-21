@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yacoredev <yacoredev@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 21:30:59 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/05/14 21:56:50 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/06/21 01:16:41 by yacoredev        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int	ft_count_words(char *str, char *seps, int *len)
 function: splits a string of character depending on charset.
 each character in charset is separator of str
 return array of pointers to each word, last element = NULL
+malloc(chars_len + count_words) 'count_words' here for \0 of each word
 */
 char	**ft_split(char *str, char *charset)
 {
