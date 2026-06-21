@@ -6,7 +6,7 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 22:44:26 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/05/11 13:38:20 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/06/18 12:28:31 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,28 +53,47 @@ int     ft_strcmp(char *s1, char *s2)
 	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
 
-// Swap only the pointers (virtual addresses), not the actual strings in memory.
+/*
+	Swap only the pointers (virtual addresses), not the actual strings in memory.
+
+	(char **) is not a container — it's just a pointer, it needs to point to
+	something that already exists.
+	It doesn't hold anything itself — it just says "go look over there."
+
+	char *arr[] = {"a", "b", "c"};  // the actual stuff exists here
+	char **param = arr;				// NOW param points to something real
+*/
 void	ft_sort_params(int ctr, char **param)
 {
 	char	*swap;
+	int		change;
 	int		i;
 	int		j;
 
-	i = 1;
-	while (i < ctr)
+	i = 0;
+	/* had outer loop ghir bach nsaghar l'etaps, (nkhraj akhir param kbir li t7at blasto) */
+	while (i < ctr - 1)
 	{
-		j = i + 1;
-		while (j < ctr)
+		change = 0;
+		j = 1;
+		/* kol mra kan9ssar l'iterval b i */
+		while (j < ctr - i - 1)
 		{
-			// if strcmp return positive value this means: the first str is greater than next str
-			if (ft_strcmp(param[i], param[j]) > 0)
+			/* if strcmp return positive value this means: the first str is greater than next str
+
+				param[0][0] == character	--> type: char
+				param[0] == address			--> type: char *
+			*/
+			if (ft_strcmp(param[j], param[j + 1]) > 0)
 			{
-				swap = param[i];
-				param[i] = param[j];
-				param[j] = swap;
+				swap = param[j];
+				param[j] = param[j + 1];
+				param[j + 1] = swap;
+				change = 1;
 			}
 			j++;
 		}
+		if (change == 0)	break;
 		i++;
 	}
 	ft_print_param(ctr, param);
