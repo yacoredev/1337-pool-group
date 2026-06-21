@@ -6,7 +6,7 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 12:56:36 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/05/14 12:52:42 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/06/20 17:18:20 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,20 @@ int     check_and_getidxbase(char c, char *base)
     return (-1);
 }
 
-// convert initial portion of the str from specific base to int
-// expected the rule of ft_atoi function
+/*
+    convert initial portion of the str from specific base to int
+    expected the rule of ft_atoi function
+
+    formula:    result = result * base + digit
+
+    example:    147    => mathematique: 1 * 10² + 4 * 10¹ + 7 * 10⁰
+
+    result = 0  * 10 + 1 = 1
+    result = 1  * 10 + 4 = 14
+    result = 14 * 10 + 7 = 147
+
+    The same applies to converting any base to decimal.
+*/
 int     ft_atoi_base(char *str, char *base)
 {
     /*
@@ -79,7 +91,7 @@ int     ft_atoi_base(char *str, char *base)
     */
     unsigned int    result;
     int             base_nbr;
-    int             idx_base;
+    int             idx_nbr;
     int             sign;
     int             i;
 
@@ -98,10 +110,10 @@ int     ft_atoi_base(char *str, char *base)
     result = 0;
     while (str[i])
     {
-        idx_base = check_and_getidxbase(str[i], base);
-        if (idx_base == -1)
+        idx_nbr = check_and_getidxbase(str[i], base);
+        if (idx_nbr == -1)
             break;
-        result = (result * base_nbr) + idx_base;
+        result = (result * base_nbr) + idx_nbr;
         i++;
     }
     return ((int)(result * sign));

@@ -6,7 +6,7 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 21:30:59 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/05/14 21:56:50 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/06/21 17:27:34 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	create_splits_words(char *str, char *charset, char **arr, char *words)
    and return length of all characters (not seps)
 
    if the current elem != seps and, previous elem == sep or start of str
-   increment count++, otherwise incremennt i++
+   increment count++
 */
 int	ft_count_words(char *str, char *seps, int *len)
 {
