@@ -6,7 +6,7 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/16 10:15:28 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/06/23 12:28:11 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/06/23 12:45:16 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,12 @@ int     ft_strlen(char *str)
 }
 
 /*
-	Here stock points to a single struct,
-	function receive: (stock + i) is a pointer (t_stock_str *)
+    stock points to a single struct.
+
+    function receives:
+        stock -> t_stock_str *
+    access:
+        stock->elem
 */
 void    ft_strcpy(t_stock_str *stock, char *str)
 {
@@ -43,11 +47,20 @@ void    ft_strcpy(t_stock_str *stock, char *str)
 }
 
 /*
-    stock points to the first element of
-    an array of structs.
     Free all allocated copies, then free
     the struct array itself.
-	function receive: (stock) is a variable (t_stock_str)
+
+    stock points to the first element of
+    an array of structs.
+
+	ah stock pointer, but fach kandir stock[i] == *(stock + i) ky3tini
+	actual structure number i type dyalo t_stock_str
+	machi bhal (stock + i) kay3tini gher pointer 3la structure number i
+
+    function receives:
+        stock -> t_stock_str *
+    access:
+        stock[i].elem
 */
 void	ft_free_mem(t_stock_str *stock, int curr_sk)
 {
