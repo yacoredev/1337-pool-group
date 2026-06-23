@@ -6,7 +6,7 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/16 10:15:28 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/06/22 18:21:21 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/06/23 12:28:11 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ int     ft_strlen(char *str)
     return (index);
 }
 
-/* Here stock points to a single struct */
+/*
+	Here stock points to a single struct,
+	function receive: (stock + i) is a pointer (t_stock_str *)
+*/
 void    ft_strcpy(t_stock_str *stock, char *str)
 {
     int     i;
@@ -44,6 +47,7 @@ void    ft_strcpy(t_stock_str *stock, char *str)
     an array of structs.
     Free all allocated copies, then free
     the struct array itself.
+	function receive: (stock) is a variable (t_stock_str)
 */
 void	ft_free_mem(t_stock_str *stock, int curr_sk)
 {
