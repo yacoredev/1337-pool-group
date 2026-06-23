@@ -6,7 +6,7 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 23:18:27 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/05/16 09:43:48 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/06/22 13:29:13 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 # define FT_ABS_H
 
 // PARENTHES DAROORI
-# define ABS(Value) ((Value < 0) ? ((Value) * -1) : Value)
+# define ABS(Value) (((Value) < 0) ? -(Value) : Value)
 
 #endif

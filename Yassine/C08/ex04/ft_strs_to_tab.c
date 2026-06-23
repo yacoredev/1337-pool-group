@@ -6,7 +6,7 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/16 10:15:28 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/05/18 18:54:28 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/06/22 18:21:21 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int     ft_strlen(char *str)
     return (index);
 }
 
+/* Here stock points to a single struct */
 void    ft_strcpy(t_stock_str *stock, char *str)
 {
     int     i;
@@ -38,7 +39,12 @@ void    ft_strcpy(t_stock_str *stock, char *str)
 	stock->copy[i] = '\0';
 }
 
-// Free all allocated memory before returning NULL
+/*
+    stock points to the first element of
+    an array of structs.
+    Free all allocated copies, then free
+    the struct array itself.
+*/
 void	ft_free_mem(t_stock_str *stock, int curr_sk)
 {
 	int		i;
@@ -93,8 +99,10 @@ struct s_stock_str *ft_strs_to_tab(int ac, char **av)
 			ft_free_mem(stock, i);
 			return (NULL);
 		}
-		// &stock[i] == stock + i	address of struct nbr i		(pointer)
-		// av[i] == &av[i][0]		address of param nbr i		(pointer)
+		/*
+			&stock[i] == stock + i	address of struct nbr i		(pointer)
+			av[i] == &av[i][0]		address of param nbr i		(pointer)
+		*/
 		ft_strcpy(stock + i, av[i]);
 		i++;
 	}

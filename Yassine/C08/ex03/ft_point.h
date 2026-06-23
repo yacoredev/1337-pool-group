@@ -6,14 +6,12 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 23:22:02 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/05/16 16:28:29 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/06/22 13:39:33 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_POINT_H
 # define FT_POINT_H
-
-# include <unistd.h>
 
 // s_point: Hadi s-smiya daakhilya dyal struct (Struct Tag)
 // s_ (kat3ni Structure)

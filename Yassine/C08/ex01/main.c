@@ -6,13 +6,23 @@ void	ft_putstr(char* str)
 		write(1, str++, 1);
 }
 
-// c 9dima makantch fiha bool, true, false dakchi 3lach kansawbohom bohdna
-// had function katkhdm bhal bool system
+/*
+	c 9dima makantch fiha bool, true, false dakchi 3lach kansawbohom bohdna
+	had function katkhdm bhal bool system
+
+	Conditional Operator:
+	(Condition) ? Value_If_True : Value_If_False;
+*/
 t_bool	ft_is_even(int nbr)
 {
 	return ((EVEN(nbr)) ? TRUE : FALSE);
 }
 
+/*
+	(void)argv; typecasting to void 7it makanst3mlhach flcode
+	To trick the compiler and prevent compilation errors if
+	we use flags -Wall -Wextra -Werror
+*/
 int		main(int argc, char** argv)
 {
 	(void)argv;
