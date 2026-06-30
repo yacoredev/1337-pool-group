@@ -6,7 +6,7 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 19:24:38 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/05/02 17:20:15 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/06/05 23:31:08 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,19 @@ void    print_number(long n)
     //   print_nb(nb / 10);
     // c = nb % 10 + '0';
     // ft_putchar(c);
-    // return;
 
     // Technique: while loop
     // size 12 kafi lga3 lar9am (m3a '-' w '\0')
     char string[12];
     int i;
-    
+
     i = 0;
     while(n > 0)
     {
         string[i++] = (n % 10) + '0';
         n /= 10;
     }
-    
+
     while(i > 0)
     {
         ft_putchar(string[--i]);
@@ -55,7 +54,7 @@ void    print_number(long n)
     // {
     // 		divisor *= 10;
     // }
-    // 
+    //
     // while (divisor > 0)
     // {
     // 		ft_putchar((n / divisor) + '0');
@@ -68,13 +67,13 @@ void    ft_putnbr(int nb)
 {
     // Khdamna b unsig.. bach ntfadaw overflow mlli nbdlo sing dial -2147483648.
     unsigned int number = (unsigned int)nb;      // unsigned int (double range of int)
-    
+
     if(nb == 0)
     {
         ft_putchar('0');
         return;
     }
-    
+
     // INT_MIN = -2147483648
     // ila 7waltha lpositive ghatwli 2147483648
     // w had number ma3ndich f type int

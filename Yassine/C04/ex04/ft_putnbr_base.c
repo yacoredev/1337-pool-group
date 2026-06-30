@@ -104,9 +104,16 @@ void	convert_baseN(char *base, char *buff, int base_nbr, long divi)
 	while (i > 0) {
 		ft_putchar(buff[--i]);
 	}
+
+	// recursive technique, no need buffer
+	/*
+	if (divi != 0)
+        convert_baseN(base, buff, base_nbr, divi / base_nbr);
+    ft_putchar(base[divi % base_nbr]);
+	*/
 }
 
-// Finction: displays a number in a base system in the terminal.
+// Fonction: displays a number in a base system in the terminal.
 void	ft_putnbr_base(int nbr, char *base)
 {
 	// momkin ndir size 32: asghar base howa base 2 momkin ytpresonta f INT_MIN b 32 number (char)

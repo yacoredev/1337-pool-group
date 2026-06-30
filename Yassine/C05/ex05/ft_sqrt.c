@@ -6,57 +6,56 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/06 11:11:57 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/05/06 18:24:29 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/06/14 01:05:39 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-    Rational number:
+    Rational number: (integer)
     A number that can be written as a fraction (a / b), where b != 0
     Examples: 1/2, 3, 0.75
+    Perfect Square
+    sqrt(4)  = 2      => return 2
+    sqrt(9)  = 3      => return 3
+    sqrt(16) = 4      => return 4
 
     Irrational number:
     A number that cannot be written as a fraction
     Its decimal form is infinite and non-repeating
     Examples: sqrt(2), pi
-
-    In this exercise:
-    If sqrt(nb) is an integer, return it
-    Otherwise, return 0
+    sqrt(2)  = 1.414213...  => return 0
+    sqrt(3)  = 1.732050...  => return 0
+    sqrt(5)  = 2.236067...  => return 0
 */
 int     ft_sqrt(int nb)
 {
     unsigned int     i;
-    
-    // Handl negative numbers and zero
+
+    /* Handl negative numbers and zero */
     if (nb <= 0)
     {
         return (0);
     }
-    
+
     i = 1;
     /*
-        Rational square root dyal nb howa number so that:
-        number * number = nb  <=>  number = nb / number
-        
-        drtha bsigha tanya bach i yb9a ymchi gher 7tal i * i = nb mayfotoch
-        w bach maykbarch i bzaf (prevent overflow):
-        Example:    ila kant nb = 2147483647 (Max Int)
-                    i ghadi w kaytla3 fach kaywsal 46341
-                    kaydir 2147483647 / 46341 = 46340
-                    kywli condition (46341 <= 46340) False
+        loop while multiplying two numbers i * i <= nb
+        Prevent overflow: use i <= nb / i instead of i * i <= nb
+        hadi li ghadir overflow (i * i) ila kbrat bzaf
     */
     while (i <= nb / i)
     {
-        // Ila l9it had rational square root * fraso = nb
-        // farah howa sqrt dyal nb
+        /*
+            Ila l9it had rational square root * fraso = nb
+            farah howa sqrt dyal nb
+        */
         if (i * i == nb)
         {
             return ((int)(i));
         }
         i++;
     }
-    // No integer square root (irrational result)
+    /* No integer square root (irrational result) */
     return (0);
 }
 
@@ -67,7 +66,7 @@ int     main(void)
 {
     int     nbr = 3;
     printf("sqrt(%d) = %d\n", nbr, ft_sqrt(nbr));
-    
+
     return (0);
 }
 */

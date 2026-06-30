@@ -6,11 +6,16 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 19:24:18 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/04/07 16:49:09 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/06/04 17:03:45 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 void ft_print_reverse_alphabet(void)
 {
@@ -19,7 +24,7 @@ void ft_print_reverse_alphabet(void)
 	letter = 'z';	// 'z' = 122 (integer) in ascii table
 	while (letter >= 'a')
 	{
-		write(1, &letter, 1);
+		ft_putchar(letter);
 		letter--;
 	}
 }

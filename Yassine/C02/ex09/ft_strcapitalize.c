@@ -6,29 +6,21 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 11:19:34 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/05/17 12:48:37 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/06/11 11:25:17 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include <stdio.h>
 
-int     is_not_num(char *c)
+int     is_numeric(char *c)
 {
-    if (*c < '0' || *c > '9')
-    {
-        return (1);
-    }
-    return (0);
+    return (*c >= '0' && *c <= '9');
 }
 
-int     is_not_alpha(char *c)
+int     is_alpha(char *c)
 {
-    if ((*c < 'A' || *c > 'Z') &&
-        (*c < 'a' || *c > 'z'))
-    {
-        return (1);
-    }
-    return (0);
+    return ((*c >= 'A' && *c <= 'Z')||
+            (*c >= 'a' && *c <= 'z'));
 }
 
 void    ft_charupcase(char *letter)
@@ -79,7 +71,7 @@ char    *ft_strcapitalize(char *str)
            kharj string but first loop maghayw9a3ch hadchi 7it m3a ghaychof
            i == 0 ghaydkhl direct ycapitalizi char (ila kan 7arf)
         */
-        if (i == 0 || (is_not_alpha(&str[i - 1]) && is_not_num(&str[i - 1])))
+        if (i == 0 || !(is_alpha(&str[i - 1]) && is_numeric(&str[i - 1])))
         {
             ft_charupcase(&str[i]);
         }
@@ -90,11 +82,10 @@ char    *ft_strcapitalize(char *str)
     // i = 0;
     // while (str[i])
     // {
-    //     /* Imp note: hna kon daz l condition li tab3 i == 0 knt ghadi n9ra
-    //        kharj string but first loop maghayw9a3ch hadchi 7it m3a ghaychof
-    //        i == 0 ghaydkhl direct ycapitalizi char (ila kan 7arf)
+    //     /*
+    //        had tari9a katghnini 3la ft_strlowcase()
     //     */
-    //     if (i == 0 || (is_not_alpha(&str[i - 1]) && is_not_num(&str[i - 1])))
+    //     if (i == 0 || !(is_alpha(&str[i - 1]) && is_numeric(&str[i - 1])))
     //     {
     //         ft_charupcase(&str[i]);
     //     }

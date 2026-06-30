@@ -1,0 +1,26 @@
+Assignment name  : ft_repeat_alpha
+Expected files   : ft_repeat_alpha.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Write a program that takes a string as a command-line argument and prints each
+alphabetical character repeated a number of times equal to its position in the
+alphabet (case-insensitive), followed by a newline.
+
+Non-alphabetical characters are printed as-is, without repetition.
+
+If the number of arguments is not 1, the program prints only a newline.
+
+Your program must be declared as follows:
+
+int     main(int argc, char **argv);
+
+Examples:
+
+$> ./ft_repeat_alpha "abc" | cat -e
+abbccc$
+$> ./ft_repeat_alpha "Hello World!" | cat -e
+HHHHHHHHeeeeellllllllllllllllllllllllooooooooooooooo WWWWWWWWWWWWWWWWWWWWWWWooooooooooooooorrrrrrrrrrrrrrrrrrlllllllllllldddd!$
+$
+$> ./ft_repeat_alpha | cat -e
+$

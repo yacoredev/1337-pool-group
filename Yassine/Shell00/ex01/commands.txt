@@ -1,0 +1,31 @@
+# 0. Create file and give rwxr-xr-x permissions
+touch testShell00 && chmod 755 testShell00
+
+# 1. Fill the file to exactly 40 bytes
+echo "ooo.." > testShell00
+or
+truncate -s 40 testShell00
+
+# 2. Change the date (e.g., to June 1, 2026)
+touch -t 202606012342 testShell00
+
+# 3. Archive the file into a tarball
+tar -cf testShell00.tar testShell00
+
+Permission: chmod user,group,other file
+r = 4, w = 2, x = 1
+
+To extract the contents of testShell00.tar while keeping 
+the original time and permissions intact, use the tar -xpf command.
+
+-x	Extarct
+-p	Preserve permissions
+-f	file (testShell00.tar)
+
+show detail time:
+stat testShell00
+
+By default, the ls -l command hides the time for older files to keep the layout clean.
+Here is how it works:
+New files (less than 6 months old): Shows Month + Day + Time (e.g., Jun  1 14:30).
+Old files (more than 6 months old): Shows Month + Day + Year (e.g., Jun  1  2000).

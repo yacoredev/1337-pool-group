@@ -1,0 +1,21 @@
+
+touch
+chmod
+mkdir
+touch -t
+creat a Hard Link:
+ln /path/to/original_folder /path/to/link_name
+
+creat a Soft Link:
+ln -s /path/to/original_folder /path/to/link_name
+
+ln: Create a link
+-s: Makes it symbolic/soft
+
+* fach kanghyar time dyal link kytchanga time dyal original_folder
+use this flag to prevent it
+-h	modify the link itself, not the target file
+
+For a Hard Link
+Because a hard link is an exact mirror of the file (they share the same Inode),
+changing the time of a hard link will always change the original file too.

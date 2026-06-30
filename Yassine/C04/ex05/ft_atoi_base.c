@@ -6,7 +6,7 @@
 /*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/03 16:23:03 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/05/17 12:45:36 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/06/13 16:25:44 by ybaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,7 @@
             = 8 + 0 + 2 + 0 -> Result: 10
 */
 
-int     ft_strlen(char *str)
-{
-    int     index;
-
-    index = 0;
-    while (str[index] != '\0')
-    {
-        index++;
-    }
-    return (index);
-}
-
-int     is_base_valid(char *base)
+int     ft_check_base(char *base)
 {
     int     i;
     int     j;
@@ -57,10 +45,10 @@ int     is_base_valid(char *base)
         }
         i++;
     }
-    return (1);
+    return (i);
 }
 
-int     check_and_getidxbase(char c, char *base)
+int     get_base_index(char c, char *base)
 {
     int     i;
 
@@ -85,7 +73,7 @@ unsigned int    ft_convert_base_ten(char *str, int i, int base_nbr, char *base)
     result = 0;
     while (str[i])
     {
-        idx_base = check_and_getidxbase(str[i], base);
+        idx_base = get_base_index(str[i], base);
         if (idx_base == -1)
         {
             break;
@@ -131,8 +119,8 @@ int     ft_atoi_base(char *str, char *base)
     int     base_nbr;
 
     // return 0 if there's an invalid argument (str_base) see subject
-    base_nbr = ft_strlen(base);
-    if (!is_base_valid(base) || base_nbr < 2)
+    base_nbr = ft_check_base(base);
+    if (!base_nbr || base_nbr < 2)
     {
         return (0);
     }
@@ -144,6 +132,7 @@ int     ft_atoi_base(char *str, char *base)
 
 /*
 #include <stdio.h>
+#include <string.h>
 int     main(void) {
 
 	char	*dec = "0123456789";
@@ -155,11 +144,11 @@ int     main(void) {
     // convert a string number from a given base to int
     // works like ft_atoi (spaces, signs, stop on invalid char)
     printf("===== Convert any Base to Decimal =====\n");
-    printf("\nbase[%d] (%s)\nDecimal: %d\n", ft_strlen(dec), dec, ft_atoi_base_ten("  --2147483648", dec));
-    printf("\nbase[%d] (%s)\nDecimal: %d\n", ft_strlen(hex), hex, ft_atoi_base_ten("  --4acf8Gu-mm", hex));
-    printf("\nbase[%d] (%s)\nDecimal: %d\n", ft_strlen(oct), oct, ft_atoi_base_ten("  --2147488a48", oct));
-    printf("\nbase[%d] (%s)\nDecimal: %d\n", ft_strlen(bin), bin, ft_atoi_base_ten("  --0110183648", bin));
-    printf("\nbase[%d] (%s)\nDecimal: %d\n", ft_strlen(new), new, ft_atoi_base_ten("  --nfv8vvpo24", new));
+    printf("\nbase[%ld] (%s)\nDecimal: %d\n", strlen(dec), dec, ft_atoi_base("  --2147483648", dec));
+    printf("\nbase[%ld] (%s)\nDecimal: %d\n", strlen(hex), hex, ft_atoi_base("  --4acf8Gu-mm", hex));
+    printf("\nbase[%ld] (%s)\nDecimal: %d\n", strlen(oct), oct, ft_atoi_base("  --2147488a48", oct));
+    printf("\nbase[%ld] (%s)\nDecimal: %d\n", strlen(bin), bin, ft_atoi_base("  --0110183648", bin));
+    printf("\nbase[%ld] (%s)\nDecimal: %d\n", strlen(new), new, ft_atoi_base("  --nfv8vvpo24", new));
 
     return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ybaadi <ybaadi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yacoredev <yacoredev@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 16:44:23 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/05/12 10:35:17 by ybaadi           ###   ########.fr       */
+/*   Updated: 2026/06/21 00:28:50 by yacoredev        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_ultimate_range(int **range, int min, int max)
 {
         int     size;
         int     i;
-	
+
         if (min >= max)
         {
 		*range = NULL;
