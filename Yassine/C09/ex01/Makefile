@@ -63,7 +63,7 @@ HDR = includes
 # '\' Line Continuation
 SRCS = srcs/ft_putchar.c srcs/ft_swap.c srcs/ft_putstr.c srcs/ft_strlen.c \
 	srcs/ft_strcmp.c
-OBJS = $(SRCS:%.c=%.o)
+OBJS = $(SRCS:.c=.o)
 
 CC = cc
 FLAGS = -Wall -Wextra -Werror
@@ -86,7 +86,7 @@ $(NAME): $(OBJS)
 	$(CC) $(FLAGS) -I $(HDR) -c $< -o $@
 
 clean:
-	rm -f srcs/*.o
+	rm -f $(OBJS)
 # -f remove without asking
 
 fclean: clean
