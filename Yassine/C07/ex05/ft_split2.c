@@ -1,15 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yacoredev <yacoredev@student.42.fr>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/13 21:30:59 by ybaadi            #+#    #+#             */
-/*   Updated: 2026/07/30 02:13:06 by yacoredev        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
+#include <stdio.h>
 #include <stdlib.h>
 
 /* check if character exists in separators string */
@@ -30,7 +19,7 @@ int	is_sep(char c, char *seps)
 /*
    if the current elem != seps and, previous elem == sep or start of str:
    Register its address
-*/
+*//*
 void	create_splits_words(char *str, char *charset, char **arr, char *words)
 {
 	int		i;
@@ -57,6 +46,41 @@ void	create_splits_words(char *str, char *charset, char **arr, char *words)
 			i++;
 	}
 	arr[word_idx] = NULL;
+}*/
+
+int	ft_wordlen(char *str, int *start, char *seps)
+{
+	int	len;
+	int	i;
+
+	len = 0;
+	i = *start;
+	while (is_sep(str[i], seps))
+		i++;
+	*start = i;
+	while (str[i] && !is_sep(str[i], seps))
+	{
+		len++;
+		i++;
+	}
+	return (len);
+}
+
+void	ft_put_word(char *buff, int	*start, char *str, char *seps)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	i = *start;
+	while (str[i] && !is_sep(str[i], seps))
+	{
+		buff[j] = str[i];
+		j++;
+		i++;
+	}
+	buff[j] = '\0';
+	*start = i;
 }
 
 /*
@@ -66,7 +90,7 @@ void	create_splits_words(char *str, char *charset, char **arr, char *words)
    if the current elem != seps and, previous elem == sep or start of str
    increment count++
 */
-int	ft_count_words(char *str, char *seps, int *len)
+int	ft_count_words(char *str, char *seps)
 {
 	int	count;
 	int	i;
@@ -76,13 +100,7 @@ int	ft_count_words(char *str, char *seps, int *len)
 	while (str[i])
 	{
 		if (!is_sep(str[i], seps) && (i == 0 || is_sep(str[i - 1], seps)))
-		{
 			count++;
-		}
-		if (!is_sep(str[i], seps))
-		{
-			(*len)++;
-		}
 		i++;
 	}
 	return (count);
@@ -98,14 +116,38 @@ char	**ft_split(char *str, char *charset)
 {
 	char	**arr;
 	char	*words;
-	int		chars_len;
+	int		word_len;
+	int		start_word;
 	int		count_words;
 
-	chars_len = 0;
-	count_words = ft_count_words(str, charset, &chars_len);
-	arr = (char **)malloc((count_words + 1) * sizeof(char *));
+	count_words = ft_count_words(str, charset);
+	if (count_words == 0)
+	{
+		arr = malloc(sizeof(char *));
+		*arr = NULL;
+		return (arr);
+	}
+	arr = malloc((count_words + 1) * sizeof(char *));
 	if (arr == NULL)
 		return (NULL);
+
+	word_len = 0;
+	start_word = 0;
+	int i = 0;
+	while (i < count_words)
+	{
+		word_len = ft_wordlen(str, &start_word, charset);
+		arr[i] = malloc((word_len + 1) * sizeof(char));
+		if (arr[i] == NULL)
+			return (NULL);
+		ft_put_word(arr[i], &start_word, str, charset);
+		i++;
+	}
+	arr[i] = NULL;
+	return(arr);
+
+/*
+
 	words = (char *)malloc(chars_len + count_words);
 	if (words == NULL)
 	{
@@ -114,4 +156,18 @@ char	**ft_split(char *str, char *charset)
 	}
 	create_splits_words(str, charset, arr, words);
 	return (arr);
+*/
+}
+int	main(int ac, char **av)
+{
+	if (ac == 3)
+	{
+		char	**arr = ft_split(av[1], av[2]);
+
+		for(int i = 0; arr[i]; i++)
+			printf("%s\n", arr[i]);
+
+		if (!*arr)
+			printf("NULL");
+	}
 }
